@@ -15,7 +15,7 @@ export PATH=:/usr/local/bin:$PATH
 # Paths.
 BIN_DIR=$(cd $(dirname $0); pwd) # absolute path
 ROOT_DIR=$(dirname $BIN_DIR)
-BUILD_DIR=$1
+BUILD_DIR=$1/server
 CACHE_DIR=$2
 ENV_DIR=$3
 
@@ -243,4 +243,3 @@ if [[ ! "$DOCKER_BUILD" ]]; then
   bpwatch stop anvil_appdir_commit
   bpwatch stop compile
 fi
-
