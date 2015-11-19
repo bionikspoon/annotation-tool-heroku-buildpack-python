@@ -132,6 +132,9 @@ if [ ! -f runtime.txt ]; then
 fi
 
 
+# Switch to the repo's context.
+cd $BUILD_DIR
+
 # ### The Cache
 mkdir -p $CACHE_DIR
 
