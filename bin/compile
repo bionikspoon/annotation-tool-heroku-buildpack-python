@@ -199,12 +199,8 @@ set-env LD_LIBRARY_PATH '/app/.heroku/vendor/lib:/app/server/.heroku/python/lib:
 set-default-env LANG en_US.UTF-8
 set-default-env PYTHONHASHSEED random
 set-default-env PYTHONPATH /app/server/
-ls
-echo $PATH
-echo $PYTHONHOME
-echo $LIBRARY_PATH
-echo $LD_LIBRARY_PATH
-echo $PYTHONPATH
+
+pwd
 
 # Install sane-default script for WEB_CONCURRENCY environment variable.
 cp $ROOT_DIR/vendor/python.webconcurrency.sh $WEBCONCURRENCY_PROFILE_PATH
