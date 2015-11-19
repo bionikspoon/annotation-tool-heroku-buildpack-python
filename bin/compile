@@ -101,7 +101,7 @@ export LD_LIBRARY_PATH=/app/.heroku/vendor/lib:$BUILD_DIR/.heroku/vendor/lib:/ap
 export PKG_CONFIG_PATH=/app/.heroku/vendor/lib/pkg-config:$BUILD_DIR/.heroku/vendor/lib/pkg-config:/app/.heroku/python/lib/pkg-config
 
 # Switch to the repo's context.
-cd $BUILD_DIR/server
+cd $BUILD_DIR
 
 # Experimental pre_compile hook.
 bpwatch start pre_compile
@@ -131,9 +131,6 @@ if [ ! -f runtime.txt ]; then
   echo $DEFAULT_PYTHON_VERSION > runtime.txt
 fi
 
-
-# Switch to the repo's context.
-cd $BUILD_DIR
 
 # ### The Cache
 mkdir -p $CACHE_DIR
