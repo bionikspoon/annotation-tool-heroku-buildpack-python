@@ -81,7 +81,7 @@ fi
 
 # Set new context.
 ORIG_BUILD_DIR=$BUILD_DIR
-BUILD_DIR=$APP_DIR/server
+BUILD_DIR=$APP_DIR
 
 # Set up outputs under new context
 PROFILE_PATH="$BUILD_DIR/.profile.d/python.sh"
@@ -109,8 +109,8 @@ bpwatch start pre_compile
 bpwatch stop pre_compile
 
 # If no requirements given, assume `setup.py develop`.
-if [ ! -f requirements.txt ]; then
-  echo "-e ." > requirements.txt
+if [ ! -f server/requirements.txt ]; then
+  echo "-e ." > server/requirements.txt
 fi
 
 
@@ -127,8 +127,8 @@ else
 fi
 
 # If no runtime given, assume default version.
-if [ ! -f runtime.txt ]; then
-  echo $DEFAULT_PYTHON_VERSION > runtime.txt
+if [ ! -f server/runtime.txt ]; then
+  echo $DEFAULT_PYTHON_VERSION > server/runtime.txt
 fi
 
 # ### The Cache
