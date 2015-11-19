@@ -15,7 +15,7 @@ export PATH=:/usr/local/bin:$PATH
 # Paths.
 BIN_DIR=$(cd $(dirname $0); pwd) # absolute path
 ROOT_DIR=$(dirname $BIN_DIR)
-BUILD_DIR=$1/server
+BUILD_DIR=$1
 CACHE_DIR=$2
 ENV_DIR=$3
 
@@ -101,7 +101,9 @@ export LD_LIBRARY_PATH=/app/.heroku/vendor/lib:$BUILD_DIR/.heroku/vendor/lib:/ap
 export PKG_CONFIG_PATH=/app/.heroku/vendor/lib/pkg-config:$BUILD_DIR/.heroku/vendor/lib/pkg-config:/app/.heroku/python/lib/pkg-config
 
 # Switch to the repo's context.
-cd $BUILD_DIR
+cd $BUILD_DIR/server
+
+pwd
 
 # Experimental pre_compile hook.
 bpwatch start pre_compile
@@ -191,16 +193,15 @@ sub-env $BIN_DIR/steps/collectstatic
 #
 
 # Set context environment variables.
-set-env PATH '$HOME/server/.heroku/python/bin:$PATH'
+set-env PATH '$HOME/.heroku/python/bin:$PATH'
 set-env PYTHONUNBUFFERED true
-set-env PYTHONHOME /app/server/.heroku/python
-set-env LIBRARY_PATH '/app/.heroku/vendor/lib:/app/server/.heroku/python/lib:$LIBRARY_PATH'
-set-env LD_LIBRARY_PATH '/app/.heroku/vendor/lib:/app/server/.heroku/python/lib:$LD_LIBRARY_PATH'
+set-env PYTHONHOME /app/.heroku/python
+set-env LIBRARY_PATH '/app/.heroku/vendor/lib:/app/.heroku/python/lib:$LIBRARY_PATH'
+set-env LD_LIBRARY_PATH '/app/.heroku/vendor/lib:/app/.heroku/python/lib:$LD_LIBRARY_PATH'
 set-default-env LANG en_US.UTF-8
 set-default-env PYTHONHASHSEED random
-set-default-env PYTHONPATH /app/server/
+set-default-env PYTHONPATH /app/
 
-pwd
 
 # Install sane-default script for WEB_CONCURRENCY environment variable.
 cp $ROOT_DIR/vendor/python.webconcurrency.sh $WEBCONCURRENCY_PROFILE_PATH
