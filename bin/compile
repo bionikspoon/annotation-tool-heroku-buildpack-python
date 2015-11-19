@@ -81,7 +81,7 @@ fi
 
 # Set new context.
 ORIG_BUILD_DIR=$BUILD_DIR
-BUILD_DIR=$APP_DIR
+BUILD_DIR=$APP_DIR/server
 
 # Set up outputs under new context
 PROFILE_PATH="$BUILD_DIR/.profile.d/python.sh"
@@ -101,9 +101,7 @@ export LD_LIBRARY_PATH=/app/.heroku/vendor/lib:$BUILD_DIR/.heroku/vendor/lib:/ap
 export PKG_CONFIG_PATH=/app/.heroku/vendor/lib/pkg-config:$BUILD_DIR/.heroku/vendor/lib/pkg-config:/app/.heroku/python/lib/pkg-config
 
 # Switch to the repo's context.
-cd $BUILD_DIR/server
-
-pwd
+cd $BUILD_DIR
 
 # Experimental pre_compile hook.
 bpwatch start pre_compile
