@@ -127,13 +127,10 @@ else
 fi
 
 # If no runtime given, assume default version.
-if [ ! -f server/runtime.txt ]; then
+if [ ! -f runtime.txt ]; then
   echo $DEFAULT_PYTHON_VERSION > runtime.txt
 fi
 
-
-# Switch to the repo's context.
-cd $BUILD_DIR
 
 # ### The Cache
 mkdir -p $CACHE_DIR
