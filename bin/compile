@@ -101,7 +101,7 @@ export LD_LIBRARY_PATH=/app/.heroku/vendor/lib:$BUILD_DIR/.heroku/vendor/lib:/ap
 export PKG_CONFIG_PATH=/app/.heroku/vendor/lib/pkg-config:$BUILD_DIR/.heroku/vendor/lib/pkg-config:/app/.heroku/python/lib/pkg-config
 
 # Switch to the repo's context.
-cd $BUILD_DIR
+cd $BUILD_DIR/server
 
 # Experimental pre_compile hook.
 bpwatch start pre_compile
@@ -109,8 +109,8 @@ bpwatch start pre_compile
 bpwatch stop pre_compile
 
 # If no requirements given, assume `setup.py develop`.
-if [ ! -f server/requirements.txt ]; then
-  echo "-e ." > server/requirements.txt
+if [ ! -f requirements.txt ]; then
+  echo "-e ." > requirements.txt
 fi
 
 
@@ -128,8 +128,12 @@ fi
 
 # If no runtime given, assume default version.
 if [ ! -f server/runtime.txt ]; then
-  echo $DEFAULT_PYTHON_VERSION > server/runtime.txt
+  echo $DEFAULT_PYTHON_VERSION > runtime.txt
 fi
+
+
+# Switch to the repo's context.
+cd $BUILD_DIR
 
 # ### The Cache
 mkdir -p $CACHE_DIR
