@@ -103,4 +103,3 @@ compile() {
 }
 
 source ${BASE}/vendor/shunit2
-
