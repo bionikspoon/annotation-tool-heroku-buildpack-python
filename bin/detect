@@ -12,7 +12,7 @@
 #
 #     $ bin/detect <build-dir> <cache-dir>
 
-BUILD_DIR=$1
+BUILD_DIR=$1/server
 
 # Exit early if app is clearly not Python.
 if [ ! -f $BUILD_DIR/requirements.txt ] && [ ! -f $BUILD_DIR/setup.py ]; then
