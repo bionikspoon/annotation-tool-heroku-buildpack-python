@@ -155,12 +155,7 @@ if [ ! -f runtime.txt ]; then
   echo $DEFAULT_PYTHON_VERSION > runtime.txt
 fi
 
-<<<<<<< HEAD
-
-# ### The Cache
-=======
 # Prepare the cache.
->>>>>>> c98615cdd00f7525e98524a40a59cf18d7f7a0b6
 mkdir -p $CACHE_DIR
 
 # Purge "old-style" virtualenvs.
