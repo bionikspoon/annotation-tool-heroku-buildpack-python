@@ -1,6 +1,7 @@
 #!/usr/bin/env bash
 # bin/release <build-dir>
 
+<<<<<<< HEAD
 BIN_DIR=$(cd $(dirname $0); pwd) # absolute path
 BUILD_DIR=$1/server
 
@@ -21,3 +22,10 @@ addons:
   heroku-postgresql:hobby-dev
 EOF
 fi
+=======
+cat << EOF
+addons: []
+default_process_types:
+  web: npm start
+EOF
+>>>>>>> a8cf29acf1f260261f4680001eb2c41c6d3d2cef

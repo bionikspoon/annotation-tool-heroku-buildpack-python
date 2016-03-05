@@ -1,2 +1,7 @@
+<<<<<<< HEAD
 *.pyc
 site
+=======
+.anvil
+.DS_Store
+>>>>>>> a8cf29acf1f260261f4680001eb2c41c6d3d2cef
