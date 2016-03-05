@@ -1,5 +1,36 @@
 # Python Buildpack Changelog
 
+## v77 (2016-02-10)
+
+Improvements to warnings and minor bugfix.
+
+## v76 (2016-02-08)
+
+Improved Django collectstatic support.
+
+- `$ python manage.py collectstatic` will only be run if `Django` is present in `requirements.txt`.
+- If collectstatic fails, the build fails. Full traceback is provided.
+- `$DISABLE_COLLECTSTATIC`: skip collectstatic step completely (not new).
+- `$DEBUG_COLLECTSTATIC`: echo environment variables upon collectstatic failure.
+- Updated build output style.
+- New warning for outdated Python (via pip `InsecurePlatform` warning).
+
+## v75 (2016-01-29)
+
+Updated pip and Setuptools.
+
+## v74 (2015-12-29)
+
+Added warnings for lack of Procfile.
+
+## v72 (2015-12-07)
+
+Updated default Python to 2.7.11.
+
+## v72 (2015-12-03)
+
+Added friendly warnings for common build failures.
+
 ## v70 (2015-10-29)
 
 Improved compatibility with multi and node.js buildpacks.
